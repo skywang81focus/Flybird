@@ -1,5 +1,36 @@
 import pandas as pd
-data = pd.read_excel('D:/文档/研二课件/区域经济学/newchina60/《新中国60年统计资料汇编》原始数据/02-北京/0201.xls',encoding="utf-16",nrows=100)
+df1 = pd.read_excel('D:/文档/研二课件/区域经济学/newchina60/《新中国60年统计资料汇编》原始数据/02-北京/0201.xls',skiprows=9,skipfooter=4,names=['year','tpn','malep','femalep','urbanp','ruralp','brithrate','deadrate','pgrowrate'])
+df2 = pd.read_excel('D:/文档/研二课件/区域经济学/newchina60/《新中国60年统计资料汇编》原始数据/02-北京/0202.xls',skiprows=10,names=['year','employn','urbanemp','ruralemp','primemp','secemp','thiremp','unemp','umemprate'])
 pd.set_option('display.max_rows',None)
 pd.set_option('display.max_columns',None)
-print(data)
+pd.merge(df1,df2,how="outer",on="year")
+
+
+import pandas as pd
+df1 = pd.read_excel('D:/文档/研二课件/区域经济学/newchina60/《新中国60年统计资料汇编》原始数据/02-北京/0201.xls',skiprows=9)
+df2 = pd.read_excel('D:/文档/研二课件/区域经济学/newchina60/《新中国60年统计资料汇编》原始数据/02-北京/0202.xls',skiprows=10)
+df3 = pd.read_excel('D:/文档/研二课件/区域经济学/newchina60/《新中国60年统计资料汇编》原始数据/02-北京/0203.xls',skiprows=10)
+df4 = pd.read_excel('D:/文档/研二课件/区域经济学/newchina60/《新中国60年统计资料汇编》原始数据/02-北京/0204.xls',skiprows=11)
+df5 = pd.read_excel('D:/文档/研二课件/区域经济学/newchina60/《新中国60年统计资料汇编》原始数据/02-北京/0205.xls',skiprows=12)
+pd.merge(df1,df2,df3,df4,df5,how="outer",on="Unnamed: 0")
+
+
+
+import pandas as pd
+# df1 = pd.read_excel('D:/文档/研二课件/区域经济学/newchina60/《新中国60年统计资料汇编》原始数据/02-北京/0201.xls',skiprows=9)
+# df2 = pd.read_excel('D:/文档/研二课件/区域经济学/newchina60/《新中国60年统计资料汇编》原始数据/02-北京/0202.xls',skiprows=10)
+# d1=pd.merge(df1, df2,how="outer",on="Unnamed: 0")
+# df3 = pd.read_excel('D:/文档/研二课件/区域经济学/newchina60/《新中国60年统计资料汇编》原始数据/02-北京/0203.xls',skiprows=10)
+# d2=pd.merge(d1, df3,how="outer",on="Unnamed: 0")
+# df4 = pd.read_excel('D:/文档/研二课件/区域经济学/newchina60/《新中国60年统计资料汇编》原始数据/02-北京/0204.xls',skiprows=11)
+# d3=pd.merge(d2, df4,how="outer",on="Unnamed: 0")
+# df5 = pd.read_excel('D:/文档/研二课件/区域经济学/newchina60/《新中国60年统计资料汇编》原始数据/02-北京/0205.xls',skiprows=12)
+# d4=pd.merge(d3, df5,how="outer",on="Unnamed: 0")
+# df6= pd.read_excel('D:/文档/研二课件/区域经济学/newchina60/《新中国60年统计资料汇编》原始数据/02-北京/0206.xls',skiprows=12)
+# d5=pd.merge(d4, df6,how="outer",on="Unnamed: 0")
+# df7 = pd.read_excel('D:/文档/研二课件/区域经济学/newchina60/《新中国60年统计资料汇编》原始数据/02-北京/0207.xls',skiprows=11)
+# d6=pd.merge(d5, df7,how="outer",on="Unnamed: 0")
+# df8 = pd.read_excel('D:/文档/研二课件/区域经济学/newchina60/《新中国60年统计资料汇编》原始数据/02-北京/0208.xls',skiprows=9)
+# d7=pd.merge(d6, df8,how="outer",on="Unnamed: 0",)
+d8=pd.read_excel('C:/Users/skywa/Desktop/python/12131.xls',skiprows=1,names=['code','year','tpn','malep','femalep','urbanp','ruralp','birthrate','deadrate','pgrowrate','employn','urbanemp','ruralemp','primemp','secemp','thiremp','unemp','umemprate','wstaff','statestaf','ucstaff','tamw','stateamw','ucamw','tarmwi','statearmwi','ucarmwi','grp','primgrp','secgrp','secmanugrp','secconsgrp','thrgrp','thirtrangrp','thretailgrp','pgrp','grpi','prigrpi','secgrpi','secmanugrpi','secconsgrpi','thrgrpi','thrtspi','thrwri','pgrpi','grpi1','prigrpi1','secgrpi1','secmanugrpi1','secconsgrpi1','thrgrpi1','thrtspi1','thrwri','pgrpi1','eagrp','fce','hce','gce','gcf','fc','ic','negs','tfai','urbantfai','restated','ruraltfai','fh','bfsuc','bfsc','rb'])
+d8.to_excel("C:/Users/skywa/Desktop/python/121121231.xls")
