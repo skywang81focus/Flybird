@@ -5,6 +5,9 @@ pd.set_option('display.max_rows',None)
 pd.set_option('display.max_columns',None)
 pd.merge(df1,df2,how="outer",on="year")
 
+x=3.5
+if  (x >= 3) and ( x<=6):
+    print('x is between 3 and 6')
 
 import pandas as pd
 df1 = pd.read_excel('D:/文档/研二课件/区域经济学/newchina60/《新中国60年统计资料汇编》原始数据/02-北京/0201.xls',skiprows=9)
